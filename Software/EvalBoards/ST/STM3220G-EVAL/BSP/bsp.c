@@ -82,8 +82,8 @@ GPIO_TypeDef*     GPIO_PORT[LEDn] = {GPIOB,
                                      GPIOI,
                                      GPIOC};
 
-const CPU_INT16U  GPIO_PIN[LEDn]  = {GPIO_Pin_1,
-                                     GPIO_Pin_8,
+const CPU_INT16U  GPIO_PIN[LEDn]  = {GPIO_Pin_0,
+                                     GPIO_Pin_1,
                                      GPIO_Pin_9,
                                      GPIO_Pin_7};
 
@@ -600,37 +600,24 @@ static void  BSP_LED_Init()
     GPIO_InitTypeDef  GPIO_InitStructure;
 
 
-    RCC_AHB1PeriphClockCmd(GPIO_CLK[0], ENABLE);
-    GPIO_InitStructure.GPIO_Pin = GPIO_PIN[0];
+    RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOB, ENABLE);
+    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_0;
     GPIO_InitStructure.GPIO_Mode  = GPIO_Mode_OUT;
     GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
     GPIO_InitStructure.GPIO_PuPd  = GPIO_PuPd_UP;
     GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
-    GPIO_Init(GPIO_PORT[0], &GPIO_InitStructure);
-
-    RCC_AHB1PeriphClockCmd(GPIO_CLK[1], ENABLE);
-    GPIO_InitStructure.GPIO_Pin = GPIO_PIN[1];
+    GPIO_Init(GPIOB, &GPIO_InitStructure);
+		
+	  RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOB, ENABLE);
+    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_1;
     GPIO_InitStructure.GPIO_Mode  = GPIO_Mode_OUT;
     GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
     GPIO_InitStructure.GPIO_PuPd  = GPIO_PuPd_UP;
     GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
-    GPIO_Init(GPIO_PORT[1], &GPIO_InitStructure);
-
-    RCC_AHB1PeriphClockCmd(GPIO_CLK[2], ENABLE);
-    GPIO_InitStructure.GPIO_Pin = GPIO_PIN[2];
-    GPIO_InitStructure.GPIO_Mode  = GPIO_Mode_OUT;
-    GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
-    GPIO_InitStructure.GPIO_PuPd  = GPIO_PuPd_UP;
-    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
-    GPIO_Init(GPIO_PORT[2], &GPIO_InitStructure);
-
-    RCC_AHB1PeriphClockCmd(GPIO_CLK[3], ENABLE);
-    GPIO_InitStructure.GPIO_Pin = GPIO_PIN[3];
-    GPIO_InitStructure.GPIO_Mode  = GPIO_Mode_OUT;
-    GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
-    GPIO_InitStructure.GPIO_PuPd  = GPIO_PuPd_UP;
-    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
-    GPIO_Init(GPIO_PORT[3], &GPIO_InitStructure);
+    GPIO_Init(GPIOB, &GPIO_InitStructure);
+	
+		GPIO_SetBits(GPIOB, GPIO_Pin_0);
+		GPIO_ResetBits(GPIOB, GPIO_Pin_1);
 }
 
 /*
@@ -657,18 +644,19 @@ static void  BSP_LED_Init()
 
 void  BSP_LED_On (CPU_INT08U  led)
 {
-		CPU_INT16U  pin_state;
-    if (led <= 0) {
-//        GPIO_PORT[0]->BSRRL = GPIO_PIN[0];
-//        GPIO_PORT[1]->BSRRL = GPIO_PIN[1];
-//        GPIO_PORT[2]->BSRRL = GPIO_PIN[2];
-//        GPIO_PORT[3]->BSRRL = GPIO_PIN[3];
-        GPIO_SetBits(GPIO_PORT[0],     pin_state  & GPIO_PIN[0]);
-        
-        return;
-    }
+//		CPU_INT16U  pin_state;
+//    if (led <= 0) {
+////        GPIO_PORT[0]->BSRRL = GPIO_PIN[0];
+////        GPIO_PORT[1]->BSRRL = GPIO_PIN[1];
+////        GPIO_PORT[2]->BSRRL = GPIO_PIN[2];
+////        GPIO_PORT[3]->BSRRL = GPIO_PIN[3];
+//        GPIO_SetBits(GPIO_PORT[0],     pin_state  & GPIO_PIN[0]);
+//        
+//        return;
+//    }
 
-    GPIO_PORT[led-1]->BSRRL = GPIO_PIN[led-1];
+//    GPIO_PORT[led-1]->BSRRL = GPIO_PIN[led-1];
+	GPIO_SetBits(GPIOB, GPIO_PIN[led]);
 }
 
 /*
@@ -695,17 +683,18 @@ void  BSP_LED_On (CPU_INT08U  led)
 
 void  BSP_LED_Off (CPU_INT08U led)
 {
-		CPU_INT16U  pin_state;
-    if (led <= 0) {
-//        GPIO_PORT[0]->BSRRH = GPIO_PIN[0];
-//        GPIO_PORT[1]->BSRRH = GPIO_PIN[1];
-//        GPIO_PORT[2]->BSRRH = GPIO_PIN[2];
-//        GPIO_PORT[3]->BSRRH = GPIO_PIN[3];
-        GPIO_ResetBits(GPIO_PORT[0], (~pin_state) & GPIO_PIN[0]);	
-        return;
-    }
+//		CPU_INT16U  pin_state;
+//    if (led <= 0) {
+////        GPIO_PORT[0]->BSRRH = GPIO_PIN[0];
+////        GPIO_PORT[1]->BSRRH = GPIO_PIN[1];
+////        GPIO_PORT[2]->BSRRH = GPIO_PIN[2];
+////        GPIO_PORT[3]->BSRRH = GPIO_PIN[3];
+//        GPIO_ResetBits(GPIO_PORT[0], (~pin_state) & GPIO_PIN[0]);	
+//        return;
+//    }
 
-    GPIO_PORT[led-1]->BSRRH = GPIO_PIN[led-1];
+//    GPIO_PORT[led-1]->BSRRH = GPIO_PIN[led-1];
+		GPIO_ResetBits(GPIOB, GPIO_PIN[led]);
 }
 
 

@@ -52,6 +52,8 @@
 */
 
 #define  APP_TASK_START_PRIO                             2u
+#define  APP_TASK_LED0_PRIO	                             4u
+#define  APP_TASK_LED1_PRIO	                             6u
 
 #define  OS_TASK_TMR_PRIO                       (OS_LOWEST_PRIO - 2)
 
@@ -63,8 +65,9 @@
 *********************************************************************************************************
 */
 
-#define  APP_TASK_START_STK_SIZE                        128u
-
+#define  	APP_TASK_START_STK_SIZE                       128u
+#define		APP_TASK_LED0_STK_SIZE												128u
+#define		APP_TASK_LED1_STK_SIZE												128u
 
 /*
 *********************************************************************************************************

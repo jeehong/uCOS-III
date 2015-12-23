@@ -52,10 +52,15 @@
 *********************************************************************************************************
 */
 
-                                                                /* ----------------- APPLICATION GLOBALS ------------------ */
+/* ----------------- APPLICATION GLOBALS ------------------ */
 static  OS_TCB   AppTaskStartTCB;
 static  CPU_STK  AppTaskStartStk[APP_TASK_START_STK_SIZE];
 
+static  OS_TCB   AppTaskLed0TCB;
+static  CPU_STK  AppTaskLed0Stk[APP_TASK_LED0_STK_SIZE];
+
+static  OS_TCB   AppTaskLed1TCB;
+static  CPU_STK  AppTaskLed1Stk[APP_TASK_LED1_STK_SIZE];
 
 /*
 *********************************************************************************************************
@@ -150,24 +155,50 @@ static  void  AppTaskStart (void *p_arg)
 #if (APP_CFG_SERIAL_EN == DEF_ENABLED)
     BSP_Ser_Init(115200);                                       /* Initialize Serial Interface                              */
 #endif
+		
+    //APP_TRACE_INFO(("Creating Application Objects... \n\r"));
+		//AppObjCreate();                                             /* Create Application Kernel Objects                        */
 
-    APP_TRACE_INFO(("Creating Application Objects... \n\r"));
-    AppObjCreate();                                             /* Create Application Kernel Objects                        */
-
-    APP_TRACE_INFO(("Creating Application Tasks... \n\r"));
+    //APP_TRACE_INFO(("Creating Application Tasks... \n\r"));
     AppTaskCreate();                                            /* Create Application Tasks                                 */
 
     while (DEF_TRUE) 
 		{                                          /* Task body, always written as an infinite loop.           */
-        BSP_LED_Off (0);
-        OSTimeDlyHMSM(0, 0, 0, 500,
-                      OS_OPT_TIME_HMSM_STRICT, &os_err);
-        BSP_LED_On (0);
-        OSTimeDlyHMSM(0, 0, 0, 500,
+        
+        OSTimeDlyHMSM(0, 1, 0, 0,
                       OS_OPT_TIME_HMSM_STRICT, &os_err);
 		}
 }
 
+static void AppTaskLed0(void)
+{
+		OS_ERR      os_err;
+	
+    while (DEF_TRUE) 
+		{                                          /* Task body, always written as an infinite loop.           */
+        BSP_LED_Off (0);
+        OSTimeDlyHMSM(0, 0, 1, 0,
+                      OS_OPT_TIME_HMSM_STRICT, &os_err);
+        BSP_LED_On (0);
+        OSTimeDlyHMSM(0, 0, 1, 0,
+                      OS_OPT_TIME_HMSM_STRICT, &os_err);
+		}
+}
+
+static void AppTaskLed1(void)
+{
+		OS_ERR      os_err;
+	
+    while (DEF_TRUE) 
+		{                                          /* Task body, always written as an infinite loop.           */
+        BSP_LED_Off (1);
+        OSTimeDlyHMSM(0, 0, 0, 500,
+                      OS_OPT_TIME_HMSM_STRICT, &os_err);
+        BSP_LED_On (1);
+        OSTimeDlyHMSM(0, 0, 0, 500,
+                      OS_OPT_TIME_HMSM_STRICT, &os_err);
+		}
+}
 
 /*
 *********************************************************************************************************
@@ -184,10 +215,37 @@ static  void  AppTaskStart (void *p_arg)
 * Note(s)     : none.
 *********************************************************************************************************
 */
-
 static  void  AppTaskCreate (void)
 {
-
+		OS_ERR  err;
+	
+    OSTaskCreate((OS_TCB     *)&AppTaskLed0TCB,                
+                 (CPU_CHAR   *)"App Task Led 0",
+                 (OS_TASK_PTR ) AppTaskLed0,
+                 (void       *) 0,
+                 (OS_PRIO     ) APP_TASK_LED0_PRIO,
+                 (CPU_STK    *)&AppTaskLed0Stk[0],
+                 (CPU_STK     )(APP_TASK_LED0_STK_SIZE / 10u),
+                 (CPU_STK_SIZE) APP_TASK_LED0_STK_SIZE,
+                 (OS_MSG_QTY  ) 0,
+                 (OS_TICK     ) 0,
+                 (void       *) 0,
+                 (OS_OPT      )(OS_OPT_TASK_STK_CHK | OS_OPT_TASK_STK_CLR),
+                 (OS_ERR     *)&err);
+								 
+    OSTaskCreate((OS_TCB     *)&AppTaskLed1TCB,                
+                 (CPU_CHAR   *)"App Task Led 1",
+                 (OS_TASK_PTR ) AppTaskLed1,
+                 (void       *) 0,
+                 (OS_PRIO     ) APP_TASK_LED1_PRIO,
+                 (CPU_STK    *)&AppTaskLed1Stk[0],
+                 (CPU_STK     )(APP_TASK_LED1_STK_SIZE / 10u),
+                 (CPU_STK_SIZE) APP_TASK_LED1_STK_SIZE,
+                 (OS_MSG_QTY  ) 0,
+                 (OS_TICK     ) 0,
+                 (void       *) 0,
+                 (OS_OPT      )(OS_OPT_TASK_STK_CHK | OS_OPT_TASK_STK_CLR),
+                 (OS_ERR     *)&err);
 }
 
 
