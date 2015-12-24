@@ -734,9 +734,9 @@ ARM Macro Assembler    Page 12
               00000200 
               00000000 
 Command Line: --debug --xref --cpu=Cortex-M3 --apcs=interwork --depend=.\obj\cs
-tartup.d -o.\obj\cstartup.o -Ie:\Keil_v5\ARM\RV31\INC -Ie:\Keil_v5\ARM\PACK\ARM
-\CMSIS\3.20.4\CMSIS\Include -Ie:\Keil_v5\ARM\Inc\ST\STM32F2xx --list=.\lst\csta
-rtup.lst ..\..\BSP\KeilMDK\cstartup.s
+tartup.d -o.\obj\cstartup.o -Id:\Keil_v5\ARM\RV31\INC -Id:\Keil_v5\ARM\PACK\ARM
+\CMSIS\4.1.0\CMSIS\Include -Id:\Keil_v5\ARM\Inc\ST\STM32F2xx --list=.\lst\cstar
+tup.lst ..\..\BSP\KeilMDK\cstartup.s
 
 
 

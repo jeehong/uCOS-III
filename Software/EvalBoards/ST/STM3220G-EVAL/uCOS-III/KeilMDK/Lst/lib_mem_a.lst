@@ -444,9 +444,9 @@ ARM Macro Assembler    Page 7
   310 00000220         
   311 00000220                 END
 Command Line: --debug --xref --cpu=Cortex-M3 --apcs=interwork --depend=.\obj\li
-b_mem_a.d -o.\obj\lib_mem_a.o -Ie:\Keil_v5\ARM\RV31\INC -Ie:\Keil_v5\ARM\PACK\A
-RM\CMSIS\3.20.4\CMSIS\Include -Ie:\Keil_v5\ARM\Inc\ST\STM32F2xx --list=.\lst\li
-b_mem_a.lst ..\..\..\..\..\uC-LIB\Ports\ARM-Cortex-M3\RealView\lib_mem_a.asm
+b_mem_a.d -o.\obj\lib_mem_a.o -Id:\Keil_v5\ARM\RV31\INC -Id:\Keil_v5\ARM\PACK\A
+RM\CMSIS\4.1.0\CMSIS\Include -Id:\Keil_v5\ARM\Inc\ST\STM32F2xx --list=.\lst\lib
+_mem_a.lst ..\..\..\..\..\uC-LIB\Ports\ARM-Cortex-M3\RealView\lib_mem_a.asm
 
 
 
