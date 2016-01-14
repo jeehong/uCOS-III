@@ -599,40 +599,18 @@ void  BSP_SRAM_Init(void)
 static void  BSP_LED_Init()
 {
     GPIO_InitTypeDef  GPIO_InitStructure;
-
-
-    RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOB, ENABLE);
-    GPIO_InitStructure.GPIO_Pin = GPIO_Pin_0;
-    GPIO_InitStructure.GPIO_Mode  = GPIO_Mode_OUT;
-    GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
-    GPIO_InitStructure.GPIO_PuPd  = GPIO_PuPd_UP;
-    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
-    GPIO_Init(GPIO_PORT[0], &GPIO_InitStructure);
-		
-	  RCC_AHB1PeriphClockCmd(GPIO_CLK[1], ENABLE);
-    GPIO_InitStructure.GPIO_Pin = GPIO_PIN[1];
-    GPIO_InitStructure.GPIO_Mode  = GPIO_Mode_OUT;
-    GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
-    GPIO_InitStructure.GPIO_PuPd  = GPIO_PuPd_UP;
-    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
-    GPIO_Init(GPIO_PORT[1], &GPIO_InitStructure);
+		u8 led_num;
 	
-		RCC_AHB1PeriphClockCmd(GPIO_CLK[2], ENABLE);
-    GPIO_InitStructure.GPIO_Pin = GPIO_PIN[2];
+	for(led_num = 0; led_num < 4; led_num++)
+	{
+    RCC_AHB1PeriphClockCmd(GPIO_CLK[led_num], ENABLE);
+    GPIO_InitStructure.GPIO_Pin = GPIO_PIN[led_num];
     GPIO_InitStructure.GPIO_Mode  = GPIO_Mode_OUT;
     GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
     GPIO_InitStructure.GPIO_PuPd  = GPIO_PuPd_UP;
     GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
-    GPIO_Init(GPIO_PORT[2], &GPIO_InitStructure);
-		
-		RCC_AHB1PeriphClockCmd(GPIO_CLK[3], ENABLE);
-    GPIO_InitStructure.GPIO_Pin = GPIO_PIN[3];
-    GPIO_InitStructure.GPIO_Mode  = GPIO_Mode_OUT;
-    GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
-    GPIO_InitStructure.GPIO_PuPd  = GPIO_PuPd_UP;
-    GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
-
-    GPIO_Init(GPIO_PORT[3], &GPIO_InitStructure);
+    GPIO_Init(GPIO_PORT[led_num], &GPIO_InitStructure);
+	}
 
 		GPIO_SetBits(GPIO_PORT[0], GPIO_PIN[0]);
 		GPIO_SetBits(GPIO_PORT[1], GPIO_PIN[1]);	
