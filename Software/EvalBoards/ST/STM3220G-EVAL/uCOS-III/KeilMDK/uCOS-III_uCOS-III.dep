@@ -1,7 +1,7 @@
 Dependencies for Project 'uCOS-III', Target 'uCOS-III': (DO NOT MODIFY !)
 F (.\app_cfg.h)(0x5697BE47)()
 F (.\lib_cfg.h)(0x5697BE47)()
-F (..\app.c)(0x5697C0DF)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I..\..\uCOS-III -I..\..\uCOS-III\KeilMDK -I..\..\BSP\OS\uCOS-III -I..\..\BSP\STM32F2xx\inc -I..\..\BSP\CMSIS\Device_Support -I..\..\BSP\CMSIS -I..\..\BSP\KeilMDK -I..\..\BSP -I..\..\..\..\..\uC-CPU\ARM-Cortex-M3\RealView -I..\..\..\..\..\uC-CPU -I..\..\..\..\..\uC-LIB\Ports\ARM-Cortex-M3\RealView -I..\..\..\..\..\uC-LIB -I..\..\..\..\..\uCOS-III\Source -I..\..\..\..\..\uCOS-III\Ports\ARM-Cortex-M3\Generic\RealView-I e:\Keil_v5\ARM\RV31\INC-I e:\Keil_v5\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include-I e:\Keil_v5\ARM\Inc\ST\STM32F2xx-DUSE_STDPERIPH_DRIVER -o .\obj\app.o --omf_browse .\obj\app.crf --depend .\obj\app.d)
+F (..\app.c)(0x569A6707)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I..\..\uCOS-III -I..\..\uCOS-III\KeilMDK -I..\..\BSP\OS\uCOS-III -I..\..\BSP\STM32F2xx\inc -I..\..\BSP\CMSIS\Device_Support -I..\..\BSP\CMSIS -I..\..\BSP\KeilMDK -I..\..\BSP -I..\..\..\..\..\uC-CPU\ARM-Cortex-M3\RealView -I..\..\..\..\..\uC-CPU -I..\..\..\..\..\uC-LIB\Ports\ARM-Cortex-M3\RealView -I..\..\..\..\..\uC-LIB -I..\..\..\..\..\uCOS-III\Source -I..\..\..\..\..\uCOS-III\Ports\ARM-Cortex-M3\Generic\RealView-I e:\Keil_v5\ARM\RV31\INC-I e:\Keil_v5\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include-I e:\Keil_v5\ARM\Inc\ST\STM32F2xx-DUSE_STDPERIPH_DRIVER -o .\obj\app.o --omf_browse .\obj\app.crf --depend .\obj\app.d)
 I (..\..\uCOS-III\includes.h)(0x5697BE47)
 I (e:\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x52FDD27E)
 I (e:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x52FDD27E)
@@ -78,7 +78,7 @@ I (..\..\uCOS-III\os_app_hooks.h)(0x5697BE47)
 F (..\os_app_hooks.h)(0x5697BE47)()
 F (..\os_cfg.h)(0x5697BE47)()
 F (..\os_cfg_app.h)(0x5697BE47)()
-F (..\..\BSP\bsp.c)(0x5697C02A)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I..\..\uCOS-III -I..\..\uCOS-III\KeilMDK -I..\..\BSP\OS\uCOS-III -I..\..\BSP\STM32F2xx\inc -I..\..\BSP\CMSIS\Device_Support -I..\..\BSP\CMSIS -I..\..\BSP\KeilMDK -I..\..\BSP -I..\..\..\..\..\uC-CPU\ARM-Cortex-M3\RealView -I..\..\..\..\..\uC-CPU -I..\..\..\..\..\uC-LIB\Ports\ARM-Cortex-M3\RealView -I..\..\..\..\..\uC-LIB -I..\..\..\..\..\uCOS-III\Source -I..\..\..\..\..\uCOS-III\Ports\ARM-Cortex-M3\Generic\RealView-I e:\Keil_v5\ARM\RV31\INC-I e:\Keil_v5\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include-I e:\Keil_v5\ARM\Inc\ST\STM32F2xx-DUSE_STDPERIPH_DRIVER -o .\obj\bsp.o --omf_browse .\obj\bsp.crf --depend .\obj\bsp.d)
+F (..\..\BSP\bsp.c)(0x5697C1DC)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I..\..\uCOS-III -I..\..\uCOS-III\KeilMDK -I..\..\BSP\OS\uCOS-III -I..\..\BSP\STM32F2xx\inc -I..\..\BSP\CMSIS\Device_Support -I..\..\BSP\CMSIS -I..\..\BSP\KeilMDK -I..\..\BSP -I..\..\..\..\..\uC-CPU\ARM-Cortex-M3\RealView -I..\..\..\..\..\uC-CPU -I..\..\..\..\..\uC-LIB\Ports\ARM-Cortex-M3\RealView -I..\..\..\..\..\uC-LIB -I..\..\..\..\..\uCOS-III\Source -I..\..\..\..\..\uCOS-III\Ports\ARM-Cortex-M3\Generic\RealView-I e:\Keil_v5\ARM\RV31\INC-I e:\Keil_v5\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include-I e:\Keil_v5\ARM\Inc\ST\STM32F2xx-DUSE_STDPERIPH_DRIVER -o .\obj\bsp.o --omf_browse .\obj\bsp.crf --depend .\obj\bsp.d)
 I (..\..\BSP\bsp.h)(0x5697BE47)
 I (e:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x52FDD27E)
 I (e:\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x52FDD27E)
