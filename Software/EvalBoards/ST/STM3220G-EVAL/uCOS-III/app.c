@@ -313,10 +313,10 @@ static void AppTaskLed0(void)
     while (DEF_TRUE) 
 		{                                          /* Task body, always written as an infinite loop.           */
         BSP_LED_Off (0);
-        OSTimeDlyHMSM(0, 0, 0, 500,
+        OSTimeDlyHMSM(0, 0, 0, 100,
                       OS_OPT_TIME_HMSM_STRICT, &os_err);
         BSP_LED_On (0);
-        OSTimeDlyHMSM(0, 0, 0, 500,
+        OSTimeDlyHMSM(0, 0, 1, 900,
                       OS_OPT_TIME_HMSM_STRICT, &os_err);
 		}
 }
@@ -327,10 +327,10 @@ static void AppTaskLed1(void)
 	
     while (DEF_TRUE) 
 		{                                          /* Task body, always written as an infinite loop.           */
-        BSP_LED_Off (1);
-        OSTimeDlyHMSM(0, 0, 1, 0,
-                      OS_OPT_TIME_HMSM_STRICT, &os_err);
         BSP_LED_On (1);
+        OSTimeDlyHMSM(0, 0, 9, 0,
+                      OS_OPT_TIME_HMSM_STRICT, &os_err);
+        BSP_LED_Off (1);
         OSTimeDlyHMSM(0, 0, 1, 0,
                       OS_OPT_TIME_HMSM_STRICT, &os_err);
 		}
@@ -343,10 +343,10 @@ static void AppTaskLed2(void)
     while (DEF_TRUE) 
 		{                                          /* Task body, always written as an infinite loop.           */
         BSP_LED_Off (2);
-        OSTimeDlyHMSM(0, 0, 2, 0,
+        OSTimeDlyHMSM(0, 1, 39, 0,
                       OS_OPT_TIME_HMSM_STRICT, &os_err);
         BSP_LED_On (2);
-        OSTimeDlyHMSM(0, 0, 2, 0,
+        OSTimeDlyHMSM(0, 0, 1, 0,
                       OS_OPT_TIME_HMSM_STRICT, &os_err);
 		}
 }
@@ -357,11 +357,11 @@ static void AppTaskLed3(void)
 	
     while (DEF_TRUE) 
 		{                                          /* Task body, always written as an infinite loop.           */
-        BSP_LED_Off (3);
-        OSTimeDlyHMSM(0, 0, 4, 0,
-                      OS_OPT_TIME_HMSM_STRICT, &os_err);
         BSP_LED_On (3);
-        OSTimeDlyHMSM(0, 0, 4, 0,
+        OSTimeDlyHMSM(0, 16, 39, 0,
+                      OS_OPT_TIME_HMSM_STRICT, &os_err);
+        BSP_LED_Off (3);
+        OSTimeDlyHMSM(0, 0, 1, 0,
                       OS_OPT_TIME_HMSM_STRICT, &os_err);
 		}
 }
